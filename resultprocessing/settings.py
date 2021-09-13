@@ -56,7 +56,7 @@ ROOT_URLCONF = 'resultprocessing.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR /'users/templates/users' , BASE_DIR / 'resultprocessing/templates'  ],
+        'DIRS': [ BASE_DIR /'users/templates', BASE_DIR / 'resultprocessing/templates', BASE_DIR /'resultapp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "resultprocessing",
+    BASE_DIR / "resultprocessing", BASE_DIR
 ]
 
 # Default primary key field type

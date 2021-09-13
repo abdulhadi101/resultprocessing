@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-     <title>Digital Trend - Project Detail</title>
-<!--
-
-DIGITAL TREND
-
-https://templatemo.com/tm-538-digital-trend
-
--->
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/font-awesome.min.css">
-     <link rel="stylesheet" href="css/aos.css">
-     <link rel="stylesheet" href="css/owl.carousel.min.css">
-     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-     <!-- MAIN CSS -->
-     <link rel="stylesheet" href="css/templatemo-digital-trend.css">
-
-</head>
+{% extends 'base-home.html' %}
+{% load static %}
 <body>
-
+    {% block content %}
      <!-- MENU BAR -->
     <nav class="navbar navbar-expand-lg position-relative">
         <div class="container">
@@ -79,7 +52,7 @@ https://templatemo.com/tm-538-digital-trend
      </section>
 
      <div class="full-image text-center" data-aos="zoom-in">
-       <img src="images/project/project-detail/interview-process.jpg" class="img-fluid" alt="interview process">
+       <img src="{% static 'images/project/project-detail/interview-process.jpg' %}" class="img-fluid" alt="interview process">
      </div>
 
      <!-- PROJECT DETAIL -->
@@ -89,7 +62,7 @@ https://templatemo.com/tm-538-digital-trend
 
                   <div class="col-lg-6 col-md-6 col-12 mb-5">
 
-                      <img src="images/project/project-detail/personal-website.png" class="img-fluid" alt="personal website" data-aos="fade-up">
+                      <img src="{% static 'images/project/project-detail/personal-website.png' %}" class="img-fluid" alt="personal website" data-aos="fade-up">
                     </div>
 
                     <div class="col-lg-5 col-md-6 mr-lg-auto mt-lg-5 col-12" data-aos="fade-up" data-aos-delay="200">
@@ -118,7 +91,7 @@ https://templatemo.com/tm-538-digital-trend
                     <h3>Curabitur egestas mollis tellus sit amet porttitor. Sed leo nisl, posuere at molestie ac, suscipit auctor mauris. Etiam quis metus elementum, tempor risus vel.</h3>
 
                     <div class="d-flex align-items-center mt-3">
-                      <img src="images/project/project-detail/male-avatar.png" class="img-fluid" alt="male avatar">
+                      <img src="{% static 'images/project/project-detail/male-avatar.png' %}" class="img-fluid" alt="male avatar">
 
                       <p>Angelo Sharp, Creative Director</p>
                     </div>
@@ -189,13 +162,14 @@ https://templatemo.com/tm-538-digital-trend
       </div>
     </footer>
 
+{% endblock content %}
 
+{% block javascripts %}
      <!-- SCRIPTS -->
-     <script src="js/jquery.min.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/aos.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/custom.js"></script>
-
+     <script src="{% static 'js/jquery.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'js/aos.js' %}"></script>
+     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+     <script src="{% static 'js/custom.js' %}"></script>
+{% endblock javascripts %}
 </body>
-</html>

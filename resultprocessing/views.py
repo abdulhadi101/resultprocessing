@@ -8,3 +8,15 @@ def homepage(request):
     context = {}
 
     return render (request, 'index.html', context)
+
+def contactView(request):
+    context = {}
+
+    return render (request, 'contact.html', context)
+
+
+def detailView(request):
+    context = {}
+
+    return render (request, 'detail.html', context)
+

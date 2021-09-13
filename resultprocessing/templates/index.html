@@ -1,34 +1,14 @@
-<!DOCTYPE html>
+{% extends 'base-home.html' %}
 {% load static %}
-<html lang="en">
-<head>
-
-     <title>Result Processing Application</title>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-     <link rel="stylesheet" href=" {% static 'static/css/bootstrap.min.css' %}">
-     <link rel="stylesheet" href="{% static 'static/css/font-awesome.min.css' %}">
-     <link rel="stylesheet" href="{% static 'static/css/aos.css' %}">
-     <link rel="stylesheet" href="{% static 'static/css/owl.carousel.min.css ' %}">
-     <link rel="stylesheet" href="{% static 'static/css/owl.theme.default.min.css' %}">
-
-     <!-- MAIN CSS -->
-     <link rel="stylesheet" href="{% static 'static/css/templatemo-digital-trend.css'%}">
-
-</head>
 <body>
-
+{% block content %}
+          
      <!-- MENU BAR -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{% url 'homepage' %}">
               <i class="fa fa-line-chart"></i>
-              Digital Trend
+              Learn-On Inc
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -48,7 +28,7 @@
                         <a href="blog.html" class="nav-link">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link contact">Contact</a>
+                        <a href="{% url 'contact' %}" class="nav-link contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -64,11 +44,11 @@
                         <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
                               <div class="hero-text">
 
-                                   <h1 class="text-white" data-aos="fade-up">We are ready for your digital marketing</h1>
+                                   <h1 class="text-white" data-aos="fade-up">We are ready for your Result Processing</h1>
 
-                                   <a href="contact.html" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Let us discuss together!</a>
+                                   <a href="{% url 'contact' %}" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Let us discuss together!</a>
 
-                                   <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-phone mr-2"></i> +99 080 070 4224</strong>
+                                   <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-phone mr-2"></i> +234 706 705 8995</strong>
                               </div>
                         </div>
 
@@ -92,10 +72,10 @@
                     <div class="col-lg-7 mx-auto col-md-10 col-12">
                          <div class="about-info">
 
-                              <h2 class="mb-4" data-aos="fade-up">the best <strong>Digital Marketing agency</strong> in Rio de Janeiro</h2>
+                              <h2 class="mb-4" data-aos="fade-up">The first <strong>Cloud-Based Result Processing</strong> in Nigeria</h2>
 
-                              <p class="mb-0" data-aos="fade-up">Total 5 HTML pages are included in this template from TemplateMo website. Please check 2 <a href="blog.html">blog</a> pages, <a href="project-detail.html">project</a> page, and <a href="contact.html">contact</a> page. 
-                              <br><br>You are <strong>allowed</strong> to use this template for commercial or non-commercial purpose. You are NOT allowed to redistribute the template ZIP file on template collection websites.</p>
+                              <p class="mb-0" data-aos="fade-up">The fastest easiest way to automate your result computation that povides insights.  
+                              <br><br> We Provide charts, reports, and Key Performance Indicator (KPI) that everyone can understand. Easily share with teachers and other school stakeholder.</p>
                          </div>
 
                          <div class="about-image" data-aos="fade-up" data-aos-delay="200">
@@ -118,7 +98,7 @@
 
                         <h2 class="mb-5 text-center" data-aos="fade-up">
                             Please take a look through our
-                            <strong>featured Digital Trends</strong>
+                            <strong>Sample Result and Reports we provide</strong>
                         </h2>
 
                          <div class="owl-carousel owl-theme" id="project-slide">
@@ -129,7 +109,7 @@
                                         <small>Marketing</small>
 
                                         <h3>
-                                             <a href="project-detail.html">
+                                             <a href="{% url 'detail' %}">
                                                   <span>Sweet Go Agency</span>
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
@@ -144,7 +124,7 @@
                                         <small>Website</small>
 
                                         <h3>
-                                             <a href="project-detail.html">
+                                             <a href="{% url 'detail' %}">
                                                   <span>Smart Ladies</span>
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
@@ -159,7 +139,7 @@
                                         <small>Branding</small>
 
                                         <h3>
-                                             <a href="project-detail.html">
+                                             <a href="{% url 'detail' %}">
                                                   <span>Shoes factory</span>
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
@@ -174,7 +154,7 @@
                                         <small>Social Media</small>
 
                                         <h3>
-                                             <a href="project-detail.html">
+                                             <a href="{% url 'detail' %}">
                                                   <span>Race Bicycle</span>
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
@@ -189,7 +169,7 @@
                                         <small>Video</small>
 
                                         <h3>
-                                             <a href="project-detail.html">
+                                             <a href="{% url 'detail' %}">
                                                   <span>Ultimate HealthCare</span>
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
@@ -242,7 +222,7 @@
         <div class="row">
 
           <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
-            <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">We make creative <strong>brands</strong> only.</h1>
+            <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">We make Beautiful <strong>Results</strong> only.</h1>
           </div>
 
           <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
@@ -250,13 +230,13 @@
 
             <p class="mb-1">
               <i class="fa fa-phone mr-2 footer-icon"></i> 
-              +99 080 070 4224
+              +234 706 705 8995
             </p>
 
             <p>
               <a href="#">
                 <i class="fa fa-envelope mr-2 footer-icon"></i>
-                hello@company.com
+                hello@learnon.com
               </a>
             </p>
           </div>
@@ -266,14 +246,14 @@
 
             <p class="mb-1">
               <i class="fa fa-home mr-2 footer-icon"></i> 
-              Av. Lúcio Costa - Barra da Tijuca, Rio de Janeiro - RJ, Brazil
+              Unit II/III Technology Incubation Center
             </p>
           </div>
 
           <div class="col-lg-4 mx-lg-auto text-center col-md-8 col-12" data-aos="fade-up" data-aos-delay="400">
-            <p class="copyright-text">Copyright &copy; 2020 Your Company
+            <p class="copyright-text">Copyright &copy; 2021 Learn On Incoroprated
             <br>
-            <a rel="nofollow noopener" href="https://templatemo.com">Design: TemplateMo</a></p>
+            <a rel="nofollow noopener" href="#">Design: Asuku</a></p>
           </div>
 
           <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
@@ -298,14 +278,9 @@
       </div>
     </footer>
 
+{% endblock content %}
 
+{% block javascripts %}
      <!-- SCRIPTS -->
-     <script src="{% static 'static/js/jquery.min.js'%}"></script>
-     <script src="{% static 'static/js/bootstrap.min.js'%}"></script>
-     <script src="{% static 'static/js/aos.js'%}"></script>
-     <script src="{% static 'static/js/owl.carousel.min.js'%}"></script>
-     <script src="{% static 'static/js/smoothscroll.js'%}"></script>
-     <script src="{% static 'static/js/custom.js'%}"></script>
-
-</body>
-</html>
+     
+{% endblock javascripts %}
