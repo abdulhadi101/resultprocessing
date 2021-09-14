@@ -1,13 +1,14 @@
 
 from django.urls import path, re_path
-from resultapp import views
+from resultapp.views import (dashboard, pages )
 
 urlpatterns = [
 
     # The home page
-    path('home', views.index, name='home'),
+    path('', dashboard, name='dashboard'),
 
     # Matches any html file
-    re_path(r'^.*\.*', views.pages, name='pages'),
+    #re_path(r'^.*\.*', pages, name='pages'),
+    path('home/', pages, name='pages')
 
 ]

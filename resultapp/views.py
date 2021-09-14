@@ -1,12 +1,15 @@
 from django.shortcuts import render
+from django.template import loader
+from django.http import HttpResponse
+from django import template
 
 # Create your views here.
 #@login_required(login_url="/login/")
-def index(request):
+def dashboard(request):
     
     context = {}
     
-    return render (request, 'index.html', context)
+    return render (request, 'dashboard.html', context)
 
 #@login_required(login_url="/login/")
 def pages(request):

@@ -17,15 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from users import views
 from resultapp import views
-from . import views
+from .views import (contactView, detailView, homepage)
 
 
 urlpatterns = [
   path('', include('users.urls')),
-  path('', include('resultapp.urls')),
-  path('', views.homepage, name='homepage'),
-  path('contact/', views.contactView, name='contact'),
-  path('detail/', views.detailView, name='detail'),
+  path('home/', include('resultapp.urls')),
+  path('', homepage, name='homepage'),
+  path('contact/', contactView, name='contact'),
+  path('detail/', detailView, name='detail'),
     path('admin/', admin.site.urls),
     
 ]
