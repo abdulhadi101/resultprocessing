@@ -3,54 +3,44 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.forms.utils import ErrorList
 from django.http import HttpResponse
-from .forms import LoginForm, SignUpForm
+from .forms import StaffSignUpForm, TeacherSignUpForm
+
+from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.db.models import Count
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import CreateView, ListView, UpdateView
+from .decorators import teacher_required, staff_required
 
 
 # Create your views here.
 
-def userRegistration(request):
-    msg     = None
-    success = False
+class StaffSignUpView(CreateView):
+    model = User
+    form_class = StaffSignUpForm
+    template_name = 'register.html'
 
-    if request.method == "POST":
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get("username")
-            raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password)
+    def get_context_data(self, **kwargs):
+        kwargs['user_type'] = 'staff'
+        return super().get_context_data(**kwargs)
 
-            msg     = 'User created - please <a href="/login">login</a>.'
-            success = True
-            
-            #return redirect("/login/")
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('dashboard')
 
-        else:
-            msg = 'Form is not valid'    
-    else:
-        form = SignUpForm()
+class TeacherSignUpView(CreateView):
+    model = User
+    form_class = TeacherSignUpForm
+    template_name = 'register.html'
 
-    return render(request, "register.html", {"form": form, "msg" : msg, "success" : success })
+    def get_context_data(self, **kwargs):
+        kwargs['user_type'] = 'teacher'
+        return super().get_context_data(**kwargs)
 
-def userLogin(request):
-    form = LoginForm(request.POST or None)
-
-    msg = None
-
-    if request.method == "POST":
-
-        if form.is_valid():
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password")
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect("/")
-            else:    
-                msg = 'Invalid credentials'    
-        else:
-            msg = 'Error validating the form'    
-
-    return render(request, "login.html", {"form": form, "msg" : msg})
-
-
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('dashboard')
